@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+
+	ul(class='menu')
+		li
+			a(href='#/view1') View 1
+		li
+			a(href='#/view2') View 2
+
+	div(ng-view)
