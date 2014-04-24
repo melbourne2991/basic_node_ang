@@ -21,6 +21,8 @@ module.exports = function(app, passport) {
 		})
 	);
 
-	app.get('/profile', homeController.profile);
 	app.get('/logout', homeController.logout);
+
+	app.get('/login-state', homeController.loginState)
+	app.get('/profile', homeController.profile);
 };

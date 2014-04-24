@@ -14,12 +14,16 @@ exports.signupForm = function(req, res, next) {
 	res.render('signup');
 };
 
-exports.profile = function(req, res, next) {
-	req.user ? console.log(req.user) : console.log('no user! :(');
+exports.logout = function(req, res, next) {
+	req.logout();
 	res.render('profile');
 };
 
-exports.logout = function(req, res, next) {
-	req.logout();
+exports.loginState = function(req, res, next) {
+	req.user ? res.send(true) : res.send(false);
+};
+
+exports.profile = function(req, res, next) {
+	req.user ? console.log(req.user) : console.log('no user! :(');
 	res.render('profile');
 };
