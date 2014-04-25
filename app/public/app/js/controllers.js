@@ -3,13 +3,18 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', ['$scope', 'isLoggedIn', '$timeout', function($scope, isLoggedIn, $timeout) {
-  	$scope.getLoginState = function() {
-  		isLoggedIn.getState(function(result) {
-
+  .controller('MyCtrl3', ['$scope', 'isLoggedIn', '$timeout', function($scope, isLoggedIn, $timeout) {
+  		isLoggedIn.getState().then(function(result) {	
+  			$scope.displayLogin = result.data.state;
   		});
-  	};	
+
+  		$scope.getLoginState = function() {
+  			console.log($scope.displayLogin);
+  		}
   }])
   .controller('MyCtrl2', [function() {
+
+  }])
+  .controller('MyCtrl1', [function() {
 
   }]);

@@ -1,12 +1,13 @@
 extends layout
 
 block content
-	form(method='post', action='/login')
-		label Email:
-		input(name='email')
-		label Password:
-		input(name='password', type='password')
-		button Login
+	div(ng-controller='MyCtrl3')
+		form(method='post', action='/login' ng-hide='displayLogin')
+			label Email:
+			input(name='email')
+			label Password:
+			input(name='password', type='password')
+			button Login
 
 	ul(class='menu')
 		li
@@ -16,4 +17,4 @@ block content
 		li
 			a(href='/logout') Logout 
 
-	div(ng-view)
+	div(ui-view)

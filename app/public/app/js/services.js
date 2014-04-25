@@ -6,10 +6,10 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('myApp.services', [])
-	.factory('isLoggedIn', function($http) {
+	.factory('isLoggedIn', function($http, $q) {
 		return {
-			getState: function(cb) {
-				$http.get('/login-state').then(cb);
+			getState: function() { 
+				return $http.get('/login-state');
 			}
 		}
 	})

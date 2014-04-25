@@ -1,28 +1,5 @@
 var homeController = require('../controllers/homeController');
 
-module.exports = function(app, passport) {
+module.exports = function(app) {
 	app.get('/', homeController.config);
-
-	app.get('/signup', homeController.signupForm);
-
-	app.post('/signup', 
-		passport.authenticate('local-signup', {
-			successRedirect: '/profile',
-			failureRedirect: '/signup'
-		})
-	);
-
-	app.get('/login', homeController.loginForm);
-
-	app.post('/login', 
-		passport.authenticate('local-login', {
-			successRedirect: '/profile',
-			failureRedirect: '/signup'
-		})
-	);
-
-	app.get('/logout', homeController.logout);
-
-	app.get('/login-state', homeController.loginState)
-	app.get('/profile', homeController.profile);
 };
